@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JLDU报名系统</title>
+	<link rel="stylesheet" href="style.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+<body>
+	<form>
+		<fieldset>
+			<legend>信息注册表</legend>
+			<h1>欢 迎 报 考 家 里 蹲 大 学!</h1>
+			<div>
+				<label for="name">姓名</label>
+            	<input required type="text" name="name" id="name" class="up" placeholder="请输入" onblur="nameValid()" />
+            	<span id="nameMsg" ></span>
+			</div>
+			<div>
+            	<label for="password">密码</label>
+            	<input required type="password" name="password" id="password" placeholder="必须包含字母和数字,且至少8位,最多16位!" maxlength="16" onblur="pswValid()" />
+            	<span id="pswMsg" ></span>
+			</div>
+			<div>
+				<label for="cfPassword">确认密码</label>
+            	<input required type="password" name="cfPassword" id="cfPassword" placeholder='请再一次输入密码' onblur="confirm()"/>
+            	<span id="cfMsg" ></span>
+			</div>
+            <div>
+            	<label for="idType">证件类型</label>
+				<select name="idType" id='idType' onblur="typeValid(this.value)">
+					<option value="0" >---请选择证件类型---</option>
+					<option value='居民身份证'>居民身份证</option>
+					<option value="港澳台身份证">港澳台身份证</option>
+					<option value="华侨身份证">华侨身份证</option>
+				</select>
+				<span id="typeMsg" ></span>
+            </div>
+
+        	<div>
+        		<label for="idNum">证件号码</label>
+        		<input required type="text" name="idNum" id="idNum" placeholder="请输入" onblur="idValid()">
+        		<span id="idMsg" ></span>
+        	</div>
+        	<div>
+           		<label for="tel">手机号码</label>
+        		<input required type="tel" name="tel" id="tel" placeholder="请输入" onblur="telValid()">  
+        		<span id="telMsg" ></span>		
+        	</div>
+ 			<div>
+ 				<label for="email">Email</label>
+        		<input required type="email" id="email" placeholder="请输入" onblur="emailValid()">
+        		<span id="emailMsg" ></span>
+ 			</div>
+        	<div>
+ 				<label for="enrollment">预计入学时间</label>
+        		<input required type="date" id="enrollment" min='2023-06-10' onblur="enrValid()">
+        		<span id="enrMsg" ></span>
+ 			</div>
+        	<button onclick="submitCheck()">注册</button>
+		</fieldset>
+	</form>
+</body>
+</html>
